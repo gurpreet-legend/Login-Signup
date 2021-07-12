@@ -5,9 +5,6 @@ const path = require("path");
 const fs = require("fs");
 const port = 80;
 
-//BACK-END STUFF :
-
-
 //MONGOOSE RELATED STUFF
 mongoose.connect('mongodb+srv://gurpreet_legend:toinfinity2701@cluster0.4pmy1.mongodb.net/UserDB?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -53,11 +50,12 @@ db.once('open', function () {
 // EXPRESS SPECIFIC STUFF
 app.use('/static', express.static('static')) // For setting source of static files
 app.use('/scripts', express.static('scripts')) // For setting source of scripts
-// app.use(express.urlencoded())
+
 app.use(express.urlencoded({
     extended: true
 }));
 app.use(express.json())
+
 
 // PUG SPECIFIC STUFF
 app.set('view engine', 'pug') // Set the template engine as pug
@@ -67,20 +65,12 @@ app.set('views', path.join(__dirname, 'views')) // Set the views directory
 // ENDPOINTS
 app.get('/', (req, res) => {
     res.status(200).render('index.pug');
-    // res.status(200).send(fs.readFileSync('/views/index.pug'));
 })
+
 app.get('/welcome', (req, res) => {
     res.status(200).render('welcome_page.pug');
-    // res.status(200).send(fs.readFileSync('/views/welcome_page.pug'));
 })
 
-// app.post('/', (req, res) => {
-
-//     console.log(typeof (req.body))
-//     console.log(req.body)
-//     res.end();
-
-// })
 
 // START THE SERVER
 app.listen(port, () => {
