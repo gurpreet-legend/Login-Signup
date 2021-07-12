@@ -1,10 +1,31 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
 const path = require("path");
 const fs = require("fs");
 const port = 80;
 
 //BACK-END STUFF :
+
+
+//MONGOOSE RELATED STUFF
+mongoose.connect('mongodb://localhost:27017/Login-Signup', {useNewUrlParser: true, useUnifiedTopology: true});
+
+//Testing connection with the database
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("We are successfully connected.")
+  
+  const userSchema = new mongoose.Schema({
+    email: String,
+    username: String,
+    age: Number,
+    gender: String,
+    address: String,
+    more: String
+  });
+});
 
 // EXPRESS SPECIFIC STUFF
 app.use('/static', express.static('static')) // For setting source of static files
