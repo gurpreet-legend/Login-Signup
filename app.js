@@ -1,12 +1,14 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+require('dotenv').config()
 const path = require("path");
 const fs = require("fs");
 const port = 80;
 
 //MONGOOSE RELATED STUFF
-mongoose.connect('mongodb+srv://gurpreet_legend:toinfinity2701@cluster0.4pmy1.mongodb.net/UserDB?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+let database_url = process.env.DATABASE_URL;
+mongoose.connect(database_url, { useNewUrlParser: true, useUnifiedTopology: true });
 
 //Testing connection with the database
 const db = mongoose.connection;
