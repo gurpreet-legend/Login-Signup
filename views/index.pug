@@ -27,11 +27,11 @@ html(lang="en")
                 //- h1 Sign Up
                 form(action="/") 
                     |E-mail 
-                    input.email#signup-email(type="text" name="email" placeholder="Enter your e-mail")
+                    input.email#signup-email(type="email" name="email" placeholder="Enter your e-mail")
                     |Username
                     input.name#signup-name(type="text" name="name" placeholder="Enter your name")
                     |Age
-                    input.age#signup-age(type="text" name="age" placeholder="Enter your age")
+                    input.age#signup-age(type="number" name="age" placeholder="Enter your age")
                     label(for="male") Gender 
                     select#signup-gender.gender(name="gender") 
                         option(value="Male") Male

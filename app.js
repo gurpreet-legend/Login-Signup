@@ -54,13 +54,6 @@ app.get('/welcome', (req, res)=>{
 })
 
 app.post('/', (req, res)=>{
-    // email = req.body.email;
-    // username = req.body.name;
-    // age = req.body.age;
-    // gender = req.body.gender;
-    // address = req.body.address;
-    // more = req.body.more;
-    // data = `{"email":"${email}", "username":"${username}", "age":"${age}", "gender":"${gender}", "address":"${address}", "more":"${more}"}`;
 
     console.log(typeof(req.body))
     console.log(req.body)
