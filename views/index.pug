@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        style 
+            include ../static/index.css
+        title Login/Sign Up 
+    body 
+        div.form-modal 
+            div.form-toggle
+                button#login-toggle(onclick="toggleLogin()") Login 
+                button#signup-toggle(onclick="toggleSignup()") Sign Up
+            div#login-form
+                //- h1 Login
+                form(action="/", method="get") 
+                    |E-mail 
+                    input.email#login-email(type="text" name="email" placeholder="Enter your e-mail")
+                    |Username
+                    input.name#login-name(type="text" name="name" placeholder="Enter your name")
+                    |Password
+                    input.age#login-age(type="text" name="age" placeholder="Enter your age")
+                    button.btn.login(type="button" onclick="customer_login()") Login
+                    a.register_link(href="#") Not registered yet ?
+            div#signup-form
+                //- h1 Sign Up
+                form(action="/") 
+                    |E-mail 
+                    input.email#signup-email(type="text" name="email" placeholder="Enter your e-mail")
+                    |Username
+                    input.name#signup-name(type="text" name="name" placeholder="Enter your name")
+                    |Age
+                    input.age#signup-age(type="text" name="age" placeholder="Enter your age")
+                    label(for="male") Gender 
+                    select#signup-gender.gender(name="gender") 
+                        option(value="Male") Male
+                        option(value="Female") Female
+                        option(value="Others") Others
+                    br
+                    |Address
+                    textarea.address#signup-address(name="address", cols="30", rows="10" placeholder="Enter your address" )
+                    |More about you
+                    textarea.more#signup-more(name="more", cols="30", rows="10" placeholder="More about you") 
+                    button.btn.signup(type="submit") Create Account
+                    
+
+        script
+            include ../scripts/index.js
